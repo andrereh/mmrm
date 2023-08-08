@@ -369,9 +369,9 @@ MODEL FEV1 = ARMCD|AVISIT / ddfm=satterthwaite solution chisq;
 
 ### `gls`
 <pre><code>gls(
-  formula = FEV1 ~  ARMCD * AVISIT,
+  model = FEV1 ~  ARMCD * AVISIT,
   data = fev_data,
-  correlation = <b>corSymm(form = ~AVISIT | USUBJID)</b>,
+  correlation = <b>corSymm(form = ~1 | USUBJID)</b>,
   weights = varIdent(form = ~1|AVISIT),
   na.action = na.omit
 )
